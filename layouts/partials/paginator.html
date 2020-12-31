@@ -1,0 +1,28 @@
+<div id="paginator">
+    <div class="flex justify-between items-center py-10">
+        {{ if .HasPrev }}
+        <a href="{{ .Prev.URL }}"
+            class="font-bold text-4xl hover:bg-black rounded-3xl p-1 hover:text-white dark:hover:bg-white dark:hover:text-black"
+            class="bg" title="Previous Page">
+            <svg class="fill-current" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15.41 7.41 14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+        </a>
+        {{ else }}
+        <span></span>
+        {{ end }}
+        {{ if .HasNext }}
+        <a href="{{ .Next.URL }}"
+            class="font-bold text-4xl hover:bg-black rounded-3xl p-1 hover:text-white dark:hover:bg-white dark:hover:text-black"
+            title="Next Page">
+            <svg class="fill-current" height="30" viewBox="0 0 24 24" width="30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 6 8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path>
+                <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+        </a>
+        {{ else }}
+        <span></span>
+        {{ end }}
+    </div>
+</div>

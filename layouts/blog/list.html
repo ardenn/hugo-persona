@@ -1,0 +1,7 @@
+{{define "main" }}
+{{$tags := (.Site.GetPage "taxonomy" "tags")}}
+{{ partial "heading.html" (dict "Link" $tags.Permalink "LinkText" "See all tags" "Heading" .Title) }}
+{{ $paginator := .Paginate (where .RegularPages "Section" "blog") }}
+{{ partial "item-list.html" $paginator.Pages }}
+{{ partial "paginator.html" $paginator}}
+{{end}}

@@ -1,0 +1,18 @@
+{{define "main" }}
+<article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl min-w-full leading-relaxed dark:prose-dark">
+    <h1 style="margin-bottom: 1rem;">{{.Title}}</h1>
+    <p class="text-gray-400 text-base">
+        <span>{{.Date.Format "03.01.2006"}} . </span>
+        {{ $category := index (.GetTerms "categories") 0 }}
+        <span class="hover:underline"><a style="font-weight:inherit;color:inherit;text-decoration:inherit;"
+                href="{{ $category.Permalink }}">{{$category.LinkTitle}}</a> . </span>
+        <span>{{.ReadingTime}} minute read</span>
+    </p>
+    <p>{{ .Content }}</p>
+</article>
+<div class="pt-10 space-x-2 flex justify-start">
+    {{ range (.GetTerms "tags") }}
+    {{ partial "taxonomy.html" (dict "Link" .Permalink "LinkText" .LinkTitle ) }}
+    {{ end }}
+</div>
+{{end}}

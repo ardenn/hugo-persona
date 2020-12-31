@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{.Site.Title}}</title>
+        {{ $options := (dict "inlineImports" true) }}
+        {{ $styles := resources.Get "css/styles.css" }}
+        {{ $styles = $styles | resources.PostCSS $options }}
+        {{ if  hugo.IsProduction  }}
+        {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+        {{ end }}
+        <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
+        <script src="/main.js"></script>
+    </head>
+
+    <body class="dark:text-white dark:bg-black">
+        <div class="container lg:max-w-4xl mx-auto my-10">
+            {{ partial "header.html" . }}
+            <div class="content py-10" style="min-height: calc(100vh - 218px);">
+                {{ block "main" . }}
+                {{end}}
+            </div>
+            {{ partial "footer.html" .}}
+        </div>
+    </body>
+
+</html>

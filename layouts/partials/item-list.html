@@ -1,0 +1,10 @@
+<ul class="lg:text-lg xl:text-xl space-y-6 text-gray-700 py-6 dark:text-white">
+    {{ range . }}
+    <li>
+        <div class="leading-relaxed">
+            <a href="{{.Permalink}}" class="hover:underline">{{.Title}}</a>
+            <div class="text-gray-400">{{ .Date.Format "02.01.2006" }}</div>
+        </div>
+    </li>
+    {{ end }}
+</ul>

@@ -1,0 +1,9 @@
+{{define "main" }}
+{{ partial "heading.html" (dict "Link" "" "LinkText" "" "Heading" .Title) }}
+<div class="pt-10 space-x-2 flex justify-start">
+    {{ range .Data.Terms.ByCount }}
+    {{ $cnt := printf "%v (%v)" .Name (len .WeightedPages )}}
+    {{ partial "taxonomy.html" (dict "Link" .Name "LinkText" $cnt  )}}
+    {{end}}
+</div>
+{{end}}
