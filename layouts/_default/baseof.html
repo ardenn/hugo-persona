@@ -7,12 +7,14 @@
         <title>{{.Site.Title}}</title>
         {{ $options := (dict "inlineImports" true) }}
         {{ $styles := resources.Get "css/styles.css" }}
+        {{ $js := resources.Get "js/main.js" }}
         {{ $styles = $styles | resources.PostCSS $options }}
-        {{ if  hugo.IsProduction  }}
+        {{ if hugo.IsProduction }}
         {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
+        {{ $js := $js | resources.Minify }}
         {{ end }}
         <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
-        <script src="/main.js"></script>
+        <script src="{{ $js.RelPermalink }}"></script>
     </head>
 
     <body class="dark:text-white dark:bg-black">
