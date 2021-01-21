@@ -5,7 +5,8 @@
         <span>{{.Date.Format "03.01.2006"}} — </span>
         {{ $category := index (.GetTerms "categories") 0 }}
         <span class="hover:underline"><a style="font-weight:inherit;color:inherit;text-decoration:inherit;"
-                href="{{ $category.Permalink }}">{{$category.LinkTitle}} </a> — </span>
+                href="{{ $category.Permalink }}">{{$category.LinkTitle}}</a></span>
+        <span> — </span>
         <span>{{.ReadingTime}} min</span>
     </p>
     <p>{{ .Content }}</p>
