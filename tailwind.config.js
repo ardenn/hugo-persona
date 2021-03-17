@@ -9,7 +9,8 @@ module.exports = {
         let els = JSON.parse(content).htmlElements;
         els = els.tags.concat(els.classes, els.ids);
         return els;
-      }
+      },
+      safelist: ["dark"]
     }
   },
   darkMode: 'class', // or 'media' or 'class'
