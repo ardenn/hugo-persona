@@ -2,12 +2,18 @@
 <html lang="en">
 
     <head>
+        <!-- Meta Info -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="{{.Site.Params.description}}">
+        <meta name="author" content="{{.Site.Params.name}}">
+        <meta name="keywords" content="{{.Site.Params.keywords}}">
         <title>{{.Site.Title}}</title>
+
         {{ $options := (dict "inlineImports" true) }}
         {{ $styles := resources.Get "css/styles.css" }}
         {{ $js := resources.Get "js/main.js" }}
+        {{ $fav := resources.Get "favicon.ico" }}
         {{ $styles = $styles | resources.PostCSS $options }}
         {{ if hugo.IsProduction }}
         {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
@@ -15,6 +21,7 @@
         {{ end }}
         <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
         <script src="{{ $js.RelPermalink }}"></script>
+        <link rel="icon" href="{{ $fav.RelPermalink }}" type="image/x-icon">
     </head>
 
     <body class="dark:text-white dark:bg-black">
