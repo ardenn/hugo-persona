@@ -18,6 +18,7 @@
         {{ if hugo.IsProduction }}
         {{ $styles = $styles | minify | fingerprint | resources.PostProcess }}
         {{ $js := $js | resources.Minify }}
+        {{ partial "gtag.html" .}}
         {{ end }}
         <link href="{{ $styles.RelPermalink }}" rel="stylesheet" />
         <script src="{{ $js.RelPermalink }}"></script>

@@ -3,6 +3,10 @@ languageCode: en-us
 title: Hugo Persona
 params:
   name: "Hugo Persona"
+  gtag:
+  description:
+  title:
+  keywords:
 build:
   writeStats: true
   useResourceCacheWhen: fallback
