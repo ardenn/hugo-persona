@@ -1,6 +1,6 @@
-baseURL: http://rodgersouma.org/
+baseURL: /
 languageCode: en-us
-title: Hugo Persona | First of his name
+title: Hugo Persona
 params:
   name: "Hugo Persona"
 build:
