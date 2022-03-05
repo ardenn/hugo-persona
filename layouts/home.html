@@ -1,5 +1,5 @@
 {{define "main" }}
-<article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl min-w-full leading-relaxed dark:prose-dark">
+<article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl min-w-full dark:prose-invert">
     <p>{{ .Content }}</p>
 </article>
 {{ $posts := where .Site.RegularPages "Section" "blog"}}
@@ -7,7 +7,7 @@
 <div class="flex justify-between items-center">
     <h2 class="text-3xl font-medium py-4">Latest Posts</h2>
     {{ $post := index $posts 0 }}
-    <a href="{{ $post.Section }}" class="hover:underline text-gray-400">Read all posts</a>
+    <a href="{{ $post.Section }}" class="hover:underline text-gray-500 dark:invert">Read all posts</a>
 </div>
 <hr>
 {{ partial "item-list.html" (first 3 $posts) }}

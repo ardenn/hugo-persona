@@ -1,13 +1,14 @@
 {{define "main" }}
-<article class="prose prose-sm sm:prose lg:prose-lg xl:prose-xl min-w-full leading-relaxed dark:prose-dark">
+<article class="prose lg:prose-lg xl:prose-xl min-w-full dark:prose-invert dark:prose-pre:bg-gray-700">
     <h1 style="margin-bottom: 1rem;">{{.Title}}</h1>
-    <p class="text-gray-400 text-base">
-        <span>{{.Date.Format "03.01.2006"}} — </span>
+    <p class="text-gray-500 dark:invert space-x-1">
+        <span>{{.Date.Format "03.01.2006"}}</span>
+        <span> — </span>
         {{ $category := index (.GetTerms "categories") 0 }}
         <span class="hover:underline"><a style="font-weight:inherit;color:inherit;text-decoration:inherit;"
                 href="{{ $category.Permalink }}">{{$category.LinkTitle}}</a></span>
         <span> — </span>
-        <span>{{.ReadingTime}} min</span>
+        <span>{{.ReadingTime}} min read</span>
     </p>
     <p>{{ .Content }}</p>
 </article>
