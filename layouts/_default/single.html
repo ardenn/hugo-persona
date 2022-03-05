@@ -1,7 +1,8 @@
 {{define "main" }}
-<article class="prose lg:prose-lg xl:prose-xl min-w-full dark:prose-invert dark:prose-pre:bg-gray-700">
+<article
+    class="prose lg:prose-lg xl:prose-xl min-w-full dark:prose-invert dark:prose-pre:bg-gray-700 prose-ul:list-disc prose-li:marker:text-black dark:prose-li:marker:text-white">
     <h1 style="margin-bottom: 1rem;">{{.Title}}</h1>
-    <p class="text-gray-500 dark:invert space-x-1">
+    <p class="space-x-1 text-">
         <span>{{.Date.Format "03.01.2006"}}</span>
         <span> — </span>
         {{ $category := index (.GetTerms "categories") 0 }}
