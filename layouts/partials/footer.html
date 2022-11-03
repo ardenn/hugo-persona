@@ -5,6 +5,11 @@
             <script>document.write(new Date().getFullYear().toString() + " ")</script>
             by {{.Site.Params.name}}. All rights reserved.
         </div>
+        <div class="text-center">
+            {{ if isset .Site.Params "mastodon" }}
+            <a rel="me" href="https://{{ .Site.Params.mastodon }}" class="hover:underline">Mastodon</a>
+            {{ end }}
+        </div>
         <div class="text-right">Theme by <a target="_blank" class="hover:underline"
                 href="https://github.com/ardenn/hugo-persona">HugoPersona</a>.</div>
     </div>

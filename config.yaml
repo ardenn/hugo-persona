@@ -3,6 +3,7 @@ languageCode: en-us
 title: Hugo Persona
 params:
   name: "Hugo Persona"
+  mastodon:
   gtag:
   description:
   title:
