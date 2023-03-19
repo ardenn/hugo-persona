@@ -9,6 +9,9 @@
             {{ if isset .Site.Params "mastodon" }}
             <a rel="me" href="https://{{ .Site.Params.mastodon }}" class="hover:underline">Mastodon</a>
             {{ end }}
+            {{ if isset .Site.Params "twitter" }}
+            <a rel="me" href="https://{{ .Site.Params.twitter }}" class="hover:underline">Twitter</a>
+            {{ end }}
         </div>
         <div class="text-right">Theme by <a target="_blank" class="hover:underline"
                 href="https://github.com/ardenn/hugo-persona">HugoPersona</a>.</div>
